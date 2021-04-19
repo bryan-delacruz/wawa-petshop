@@ -8,14 +8,15 @@ const NavBar = (props) => {
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">WaWa-PetShop</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <Nav.Link href="#home">Inicio</Nav.Link>
+          <Nav.Link href="#dog">Perro</Nav.Link>
+          <Nav.Link href="#cat">Gato</Nav.Link>
+          <Nav.Link href="#OfertTop">Ofertas TOP</Nav.Link>
         </Nav>
         <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
           <Button variant="outline-light" className="mr-sm-2">
-            Search
+            Buscar
           </Button>
         </Form>
         <CartWidget />
