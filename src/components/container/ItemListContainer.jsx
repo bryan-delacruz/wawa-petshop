@@ -46,7 +46,7 @@ const ItemListContainer = () => {
 
       setTimeout(() => {
         resolve(data);
-      }, 2000);
+      }, 500);
     });
 
     getProducts
