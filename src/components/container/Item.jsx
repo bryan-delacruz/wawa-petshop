@@ -1,7 +1,10 @@
 import React from "react";
 import { Button, Card, ListGroup } from "react-bootstrap";
+import { Link } from "react-router-dom"
 
-const Item = ({producto}) => {
+const Item = ({ producto }) => {
+
+
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={producto.pictureUrl} />
@@ -13,7 +16,9 @@ const Item = ({producto}) => {
             <ListGroup.Item>Precio: S/.{producto.price}</ListGroup.Item>
           </ListGroup>
         </Card.Text>
-        <Button variant="primary">Más información</Button>
+        <Link to={`/id/${producto.id}`}>
+          <Button variant="primary">Más información</Button>
+        </Link>
       </Card.Body>
     </Card>
   );
