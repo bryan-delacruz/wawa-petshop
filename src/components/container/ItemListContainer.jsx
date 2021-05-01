@@ -1,13 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
+
 import ItemList from "./ItemList";
+
+import { useParams } from 'react-router-dom'
 
 import getdata from "../../database/data"
 
 const ItemListContainer = () => {
 
   const [products, setProducts] = useState([]);
+
+  const { categoryId } = useParams()
 
   useEffect(() => {
 
@@ -21,7 +26,8 @@ const ItemListContainer = () => {
     getProducts
       .then(
         (res) => {
-          setProducts(res);
+          console.log(categoryId);
+          (categoryId === undefined) ? setProducts(res) : setProducts(res.filter(e => e.category === categoryId));
         },
         (rej) => {
           console.log("rechazada-->", rej);
@@ -33,7 +39,7 @@ const ItemListContainer = () => {
       .finally(() => {
         console.log("fin de la promesa");
       });
-  }, []);
+  }, [categoryId]);
 
   //   console.log(products);
 

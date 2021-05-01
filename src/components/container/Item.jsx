@@ -16,7 +16,7 @@ const Item = ({ producto }) => {
             <ListGroup.Item>Precio: S/.{producto.price}</ListGroup.Item>
           </ListGroup>
         </Card.Text>
-        <Link to={`/id/${producto.id}`}>
+        <Link to={`/item/${producto.id}`}>
           <Button variant="primary">Más información</Button>
         </Link>
       </Card.Body>

@@ -12,15 +12,10 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/id/:id" >
-          <ItemDetailContainer />
-        </Route>
-        <Route path="/">
-          <ItemListContainer />
-        </Route>
+        <Route path="/login" exact component={Login} />
+        <Route path="/item/:id" exact component={ItemDetailContainer} />
+        <Route path="/category/:categoryId" exact component={ItemListContainer} />
+        <Route path="/" component={ItemListContainer} />
       </Switch>
     </BrowserRouter>
   );

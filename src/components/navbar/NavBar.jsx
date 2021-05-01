@@ -14,15 +14,19 @@ const NavBar = (props) => {
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="/">WaWa-PetShop</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Inicio</Nav.Link>
-          <LinkContainer to="#perro">
+          <LinkContainer to="/">
+            <Nav.Link>Inicio</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/category/dog">
             <Nav.Link >Perro</Nav.Link>
           </LinkContainer>
-          <Nav.Link href="#cat">Gato</Nav.Link>
+          <LinkContainer to="/category/cat">
+            <Nav.Link >Gato</Nav.Link>
+          </LinkContainer>
           <LinkContainer to="ofertasTop">
             <Nav.Link href="#OfertTop">Ofertas TOP</Nav.Link>
           </LinkContainer>
-          <LinkContainer to="/id">
+          <LinkContainer to="/login">
             <Nav.Link >Iniciar Sesión</Nav.Link>
           </LinkContainer>
         </Nav>
