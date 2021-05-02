@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import NavBar from "./components/navbar/NavBar";
 import Login from "./components/login/Login";
@@ -9,7 +9,7 @@ import ItemDetailContainer from "./components/container/ItemDetailContainer";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <NavBar />
       <Switch>
         <Route path="/login" exact component={Login} />
@@ -17,7 +17,7 @@ function App() {
         <Route path="/category/:categoryId" exact component={ItemListContainer} />
         <Route path="/" component={ItemListContainer} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 }
 

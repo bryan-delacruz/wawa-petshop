@@ -12,11 +12,13 @@ const NavBar = (props) => {
   return (
     <>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="/">WaWa-PetShop</Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand >WaWa-PetShop</Navbar.Brand>
+        </LinkContainer>
         <Nav className="mr-auto">
-          <LinkContainer to="/">
+          {/* <LinkContainer to="/">
             <Nav.Link>Inicio</Nav.Link>
-          </LinkContainer>
+          </LinkContainer> */}
           <LinkContainer to="/category/dog">
             <Nav.Link >Perro</Nav.Link>
           </LinkContainer>
