@@ -3,8 +3,6 @@ import { Button, Card, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom"
 
 const Item = ({ producto }) => {
-
-
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={producto.image} />
