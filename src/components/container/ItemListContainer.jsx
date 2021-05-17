@@ -6,49 +6,45 @@ import ItemList from "./ItemList";
 
 import { useParams } from 'react-router-dom'
 
-import getdata from "../../database/data"
+import { getFirestore } from '../../firebase/firebase'
 
 const ItemListContainer = () => {
 
-  const [products, setProducts] = useState([]);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const { categoryId } = useParams()
 
   useEffect(() => {
+    const db = getFirestore()
 
-    const getProducts = new Promise((resolve, reject) => {
+    const itemsCollection = db.collection("items")
 
-      setTimeout(() => {
-        resolve(getdata());
-      }, 500);
-    });
-
-    getProducts
-      .then(
-        (res) => {
-          console.log(categoryId);
-          (categoryId === undefined) ? setProducts(res) : setProducts(res.filter(e => e.category === categoryId));
-        },
-        (rej) => {
-          console.log("rechazada-->", rej);
+    itemsCollection.get()
+      .then((querySnapShot) => {
+        querySnapShot.size === 0 ?
+          console.log("No hay items") :
+          console.log(`Hay ${querySnapShot.size} items`)
+        const documentos = querySnapShot.docs.map((doc) => {
+          return {
+            id: doc.id,
+            ...doc.data()
+          }
         }
-      )
-      .catch((err) => {
-        console.log(err);
+        )
+        categoryId === undefined ? 
+          setItems(documentos) : 
+          setItems(documentos.filter(e => e.categoryId === categoryId));
       })
-      .finally(() => {
-        console.log("fin de la promesa");
-      });
-  }, [categoryId]);
-
-  //   console.log(products);
+      .catch((err) => console.log("error", err))
+      .finally(() => "fin de la promesa")
+  }, [categoryId])
 
   return (
     <>
       <Container>
-        <ItemList productos={products} />
+        <ItemList productos={items} />
       </Container>
-
     </>
   );
 };

@@ -5,7 +5,7 @@ const ItemDetail = ({ producto }) => {
     console.log(producto)
     return (
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={producto.pictureUrl} />
+            <Card.Img variant="top" src={producto.image} />
             <Card.Body>
                 <Card.Title style={{ height: '4rem' }} >{producto.title}</Card.Title>
                 <Card.Text>
