@@ -41,8 +41,6 @@ const ItemDetailContainer = () => {
         <Container>
             <ItemDetail producto={item} ></ItemDetail>
         </Container>
-
-
     )
 }
 
