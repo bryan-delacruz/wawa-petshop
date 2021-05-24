@@ -1,8 +1,13 @@
-import React from 'react'
-import { Card, ListGroup } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Button, Card, ListGroup } from 'react-bootstrap'
+import { Link } from "react-router-dom"
+import ItemCount from './ItemCount'
+
 
 const ItemDetail = ({ producto }) => {
-    console.log(producto)
+
+    const [cuenta, setCuenta] = useState(1);
+
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={producto.image} />
@@ -14,6 +19,12 @@ const ItemDetail = ({ producto }) => {
                         <ListGroup.Item>Precio: S/.{producto.price}</ListGroup.Item>
                     </ListGroup>
                 </Card.Text>
+                <ItemCount stock={producto.stock} cuenta={cuenta} setCuenta={setCuenta}></ItemCount>
+                <Button variant="primary" className="mt-2 w-100">Agregar</Button>
+                {}
+                <Link to='/cart'>
+                    <Button variant="success" className="mt-2 w-100">Terminar tu compra</Button>
+                </Link>
             </Card.Body>
         </Card>
     )
